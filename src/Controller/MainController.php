@@ -15,8 +15,7 @@ class MainController extends AbstractController
 
     public function home()
     {
-        echo "home page";
-        die();
+        return $this->render("main/home.html.twig");
     }
 
 //--------------------------------------
@@ -27,8 +26,7 @@ class MainController extends AbstractController
 
     public function test()
     {
-        echo "Page de test des codes";
-        die();
+        return $this -> render("main/test.html.twig");
     }
 
     //--------------------------------------
