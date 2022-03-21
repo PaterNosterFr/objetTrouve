@@ -1,16 +1,59 @@
-<!doctype html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=yes, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+{% extends "base.html.twig" %}
 
-    <title>Document</title>
-</head>
+{% block title %}
+    {{ parent() }} | Page de tests
+{% endblock %}
 
-<body>
+
+{% block body %}
+
     <h1>Page des tests de codage</h1>
-</body>
 
-</html>
+{# Creation et usage d'une variable #}
+    <div>
+        {% set name = "Thomas" %}
+        <h2>{{ name}}</h2>
+    </div>
+
+<br>
+{# Creation et usage d'un tableau #}
+    {% set colors = ["orange", "brown", "turquoise", "blue"] %}
+
+    <div>Nombre de data dans le tableau "colors" : {{ colors |length  }}</div>
+    <div>Contenu du tableau "colors": {{ colors | join(' / ') }}</div>
+
+
+        {% for color in colors %}
+            <div style="background-color: {{ color }}">{{ loop.index }} - {{ color }}</div>
+        {% endfor %}
+
+<br>
+{# Gestion des objets #}
+    {% set book =
+        {
+        titre: "Pif et Hercule",
+        annee: 2010,
+        autheur: "Leonardo"
+        }
+    %}
+
+    <div>
+        Titre du livre dans la boucle : {{ book.titre }}
+        <br>
+        {#  Boucle dans le contenu du tableau "book"#}
+        {% for key, val in book %}
+        <div>
+            {{ key }} : {{ val }}
+        </div>
+
+        {% endfor %}
+    </div>
+
+
+<br>
+{# Filtre date #}
+
+<div>Date actuelle : {{ "now" | date('Y') }}</div>
+<div>Date année actuelle + 1 an : {{ "+1 years" | date('Y') }}</div>
+
+{% endblock %}

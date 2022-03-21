@@ -7,7 +7,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class MainController extends AbstractController
 {
-    // Une méthode par page !
+    // Une méthode (function) par page !
 
     /**
      * @Route("/", name="main_home")

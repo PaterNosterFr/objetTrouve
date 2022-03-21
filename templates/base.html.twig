@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=yes, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>{% block title %}Objets trouvés{% endblock %}</title>
+</head>
+
+<body>
+    <header>
+        <h1>Objets trouvés</h1>
+        {% include 'inc/nav.html.twig' %}
+
+    </header>
+
+    <main>
+        {% block body %}
+
+        {% endblock %}
+    </main>
+
+    <footer>
+        <div>&copy; {{ "now"|date("Y") }} - Objets trouvés</div>
+
+    </footer>
+
+
+
+</body>
+</html>
