@@ -9,7 +9,13 @@
 
     <h1>Page des tests de codage</h1>
 
-{# Creation et usage d'une variable #}
+{# Récupération et affichage d'une variable obtenue dans le MainController #}
+    <div>
+        Récupération du titre, année passé en variable dans le controller : {{ mySerie.titre}}, {{ mySerie.année }}
+    </div>
+
+<br>
+{# Creation et usage d'une variable définie dans le fichier#}
     <div>
         {% set name = "Thomas" %}
         <h2>{{ name}}</h2>
