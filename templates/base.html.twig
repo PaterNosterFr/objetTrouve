@@ -23,20 +23,34 @@
 </head>
 
 <body>
+
     <header>
-        <a href="{{ path('main_home') }}">
-            <h1><img src="{{ asset('img/logo_thouma.png') }}" alt="Logo de l'entreprise Thouma">Objets trouvés</h1>
-        </a>
-        {% include 'inc/nav.html.twig' %}
+        <div class="container">
+            <div class="row">
+                <div class="col-4">
+                <a href="{{ path('main_home') }}">
+                    <h1>
+                        <img src="{{ asset('img/logo_thouma.png') }}" alt="Logo de l'entreprise Thouma">Objets trouvés
+                    </h1>
+                </a>
+                </div>
+                <div class="col">
+                    {% include 'inc/nav.html.twig' %}
+                </div>
+            </div>
+        </div>
     </header>
 
+
     <main>
+        <br>
         {% block body %}
 
         {% endblock %}
     </main>
 
     <footer>
+        <br>
         <div>&copy; {{ "now"|date("Y") }} - Objets trouvés</div>
     </footer>
 

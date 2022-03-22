@@ -1,7 +1,32 @@
 <nav>
-    <ul>
-        <li><a href="{{ path('main_home') }}" title="Page d'acceuil">Acceuil</a></li>
-        <li><a href="{{ path('main_test') }}" title="Page de test">Test</a></li>
-        <li><a href="#" title="Connexion / inscription">Connexion / Inscription</a></li>
+    <ul class="nav nav-pills nav-justified self-">
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"> Consulter les annonces</a>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="{{ path('annonceObjet_list') }}" title="Listes des objets perdus">Objet perdu ou trouvé</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#" title="Listes des animaux perdus">Animal perdu ou trouvé</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#" title="Liste des personnes disparues">Proche disparu</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#" title="Liste officielle des personnes disparues">Liste gouvernementale des personnes disparues</a></li>
+            </ul>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Créer une annonce</a>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="{{ path('annonceObjet_creation') }}">J'ai perdu / trouvé un objet ?</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">J'ai perdu / trouvé un animal ?</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Je souhaite partager la disparition inquiétante d'un proche ?</a></li>
+            </ul>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#" title="Connexion / inscription">Connexion / Inscription</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ path('main_test') }}" title="Page de test">Test</a>
+        </li>
     </ul>
 </nav>
