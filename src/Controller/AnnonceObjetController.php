@@ -8,10 +8,10 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/annoncesObjet", name="annonceObjet_")
+ * @Route("/annonceObjet", name="annonceObjet_")
  */
 
-class AnnoncesObjetController extends AbstractController
+class AnnonceObjetController extends AbstractController
 {
     /**
      * @Route("", name="list")
@@ -21,7 +21,7 @@ class AnnoncesObjetController extends AbstractController
     {
         //todo : aller chercher les annonces en bdd pour affichage
 
-        return $this->render('annoncesObjet/list.html.twig', [
+        return $this->render('annonceObjet/list.html.twig', [
 
         ]);
     }
@@ -34,7 +34,7 @@ class AnnoncesObjetController extends AbstractController
     {
         //todo : aller chercher les annonces en bdd pour affichage
 
-        return $this -> render('annoncesObjet/details.html.twig');
+        return $this -> render('annonceObjet/details.html.twig');
     }
 
     /**
@@ -44,12 +44,7 @@ class AnnoncesObjetController extends AbstractController
     public function creation(): Response
     {
 
-        return $this -> render('annoncesObjet/creation.html.twig');
+        return $this -> render('annonceObjet/creation.html.twig');
     }
-
-
-
-
-
 
 }

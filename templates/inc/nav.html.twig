@@ -3,13 +3,14 @@
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"> Consulter les annonces</a>
             <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="{{ path('annonceObjet_list') }}" title="Listes des objets perdus">Objet perdu ou trouvé</a></li>
+                <li><a class="dropdown-item" href="{{ path('annonceObjet_list') }}" title="Listes des objets perdus">Liste des objets</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#" title="Listes des animaux perdus">Animal perdu ou trouvé</a></li>
+                <li><a class="dropdown-item" href="{{ path('annonceAnimal_list') }}" title="Listes des animaux perdus">Liste des animaux</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#" title="Liste des personnes disparues">Proche disparu</a></li>
+                <li><a class="dropdown-item" href="{{ path('annoncePersonne_list') }}" title="Liste des personnes disparues">Disparition inquiétante</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#" title="Liste officielle des personnes disparues">Liste gouvernementale des personnes disparues</a></li>
+                <li><a class="dropdown-item" href="https://www.116000enfantsdisparus.fr/avis-de-recherche.html"
+                       title="Disparitions de mineur en cours" target="_blank">Disparitions de mineur en cours</a></li>
             </ul>
         </li>
         <li class="nav-item dropdown">
@@ -17,13 +18,13 @@
             <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="{{ path('annonceObjet_creation') }}">J'ai perdu / trouvé un objet ?</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">J'ai perdu / trouvé un animal ?</a></li>
+                <li><a class="dropdown-item" href="{{ path('annonceAnimal_creation') }}">J'ai perdu / trouvé un animal ?</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Je souhaite partager la disparition inquiétante d'un proche ?</a></li>
+                <li><a class="dropdown-item" href="{{ path('annoncePersonne_creation') }}">Disparition inquiétante d'un proche ?</a></li>
             </ul>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#" title="Connexion / inscription">Connexion / Inscription</a>
+            <a class="nav-link" href="{{ path('user_creation') }}" title="Connexion / inscription">Connexion / Inscription</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="{{ path('main_test') }}" title="Page de test">Test</a>
