@@ -1,12 +1,14 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-    Détails de l'annonces | {{ parent() }}
+{{objet.name}} | {{ parent() }}
 {% endblock %}
 
 {% block body %}
-    <h2>
-        todo :
-        Afficher le titre de l'annonce + toutes les infos liées
-    </h2>
+    <h2>{{ objet.name}}</h2>
+    <br>
+    <div>{{ objet.name }}</div>
+    <div>{{ objet.date }}</div>
+    <div>{{ objet.lieu }}</div>
+    <div>{{ objet.photo }}</div>
 {% endblock %}

@@ -1,7 +1,8 @@
 body {
-    background-image: url("../img/background.jpg");
-    background-attachment: fixed;
-    color: black;
+    background: rgb(156,151,240);
+    background: linear-gradient(176deg, rgba(156,151,240,1) 0%, rgba(9,9,121,1) 41%, rgba(64,193,219,1) 100%);;
+    background-repeat: no-repeat;
+    color: #FFFFFF;
     font-family: 'Crimson Text', serif;
 }
 
@@ -12,10 +13,17 @@ body {
 }
 
 a {
-    color: inherit;
+    color: white;
     text-decoration: none;
 }
-
+a:hover{
+    color: black;
+    background-color: white;
+}
+a:focus {
+    color: crimson;
+    background-color: white;
+}
 
 
 img {
@@ -37,14 +45,30 @@ main {
 }
 
 /* CSS lié à la barre de navigation */
+.nav > li > a{
+    color: #5eb5e0;
+}
+.nav > li > a:hover{
+    color: white;
+}
+.nav > li > a:focus {
+    color: white;
+    text-decoration: none;
+    background-color: transparent;
+}
 
 nav ul {
     display: flex;
     list-style: none ;
-    padding-left: 0;
 }
 
 nav li {
-    margin-right: 1rem;
-    color: black;
+    color: red;
+}
+
+/* CSS lié à l'affiche des réponses des objets */
+.objet-liste {
+    display: flex;
+    grid-gap: 5px;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
 }

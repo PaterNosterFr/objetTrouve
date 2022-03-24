@@ -6,8 +6,16 @@
 
 {% block body %}
 
-    <section>
-        todo : afficher la liste des annonces d'objets perdus
+    <section class="objet-liste">
+        {% for objet in objets %}
+            <article>
+                <a href="{{ path('annonceObjet_details', {'id' : objet.id})}}" title="Détail de l'annonce">
+                    {{ objet.name }}
+                    <br>
+                    <img src="{{  asset('img/objet/' ~ objet.photo) }}" alt="{{ objet.name }}">
+                </a>
+            </article>
+        {% endfor %}
     </section>
 
 {% endblock %}

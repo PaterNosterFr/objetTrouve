@@ -21,6 +21,28 @@ class ObjetsRepository extends ServiceEntityRepository
         parent::__construct($registry, Objets::class);
     }
 
+
+	// fonction de recherche personnalisée à appeler ensuite dans le controller de l'entité liée
+	public function trouverUneAnnonce()
+	{
+		//QueryBuilder
+		$queryBuilder = $this -> createQueryBuilder ('o');
+
+		// si besoin de condition de filtre :
+		//$queryBuilder->andWhere ('o.');
+
+		//organisation des resultats par date descendente :
+		$queryBuilder -> addOrderBy ('o.date', 'DESC');
+
+		$query = $queryBuilder->getQuery ();
+		$query->setMaxResults (30);
+
+		$results = $query -> getResult ();
+		return $results;
+	}
+
+
+
     /**
      * @throws ORMException
      * @throws OptimisticLockException
