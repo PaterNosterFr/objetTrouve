@@ -40,6 +40,24 @@ header img {
     height: 70px;
 }
 
+/* CSS lié au formulaire */
+label{
+    display: block;
+}
+
+input,
+textarea,
+select{
+    margin-bottom: 1rem;
+    box-sizing: border-box;
+    max-width: 50%;
+    width: 150px;
+}
+
+/* FIN CSS FORMULAIRE*/
+
+
+
 main {
     flex: 1;
 }
@@ -72,3 +90,6 @@ nav li {
     grid-gap: 5px;
     grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
 }
+
+
+

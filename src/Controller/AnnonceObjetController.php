@@ -3,9 +3,13 @@
 namespace App\Controller;
 
 use App\Entity\Objets;
+use App\Form\ObjetType;
 use App\Repository\ObjetsRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use http\Env\Request;
+
+use Symfony\Component\HttpFoundation\Request;
+
+
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 use Symfony\Component\HttpFoundation\Response;
@@ -55,10 +59,16 @@ class AnnonceObjetController extends AbstractController
      * @Route("/create", name="creation")
      */
 
-    public function creation(EntityManagerInterface $entityManager, Request $request): Response
+    public function creation(Request $request): Response
     {
 		$objet = new Objets();
+		$objetForm = $this -> createForm (ObjetType::class, $objet);
 
+		return $this -> render ('annonceObjet/creation.html.twig',[
+			"objetForm" => $objetForm -> createView ()
+		]);
+
+/*
 		$objet->setDateCreation (new \DateTime());
 		$objet->setStatus ("Active");
 
@@ -69,6 +79,7 @@ class AnnonceObjetController extends AbstractController
 
 
         return $this -> render('annonceObjet/creation.html.twig');
+*/
     }
 
 	public function suppression(int $id,
