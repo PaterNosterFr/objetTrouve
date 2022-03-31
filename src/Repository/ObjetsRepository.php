@@ -21,6 +21,10 @@ class ObjetsRepository extends ServiceEntityRepository
         parent::__construct($registry, Objets::class);
     }
 
+	public function count ( array $criteria )
+	{
+		return parent ::count ( $criteria );
+	}
 
 	// fonction de recherche personnalisée à appeler ensuite dans le controller de l'entité liée
 	public function trouverUneAnnonce()
@@ -31,7 +35,7 @@ class ObjetsRepository extends ServiceEntityRepository
 		// si besoin de condition de filtre :
 		//$queryBuilder->andWhere ('o.');
 
-		//organisation des resultats par date descendente :
+		//organisation des résultats par date descendante :
 		$queryBuilder -> addOrderBy ('o.date', 'DESC');
 
 		$query = $queryBuilder->getQuery ();

@@ -19,7 +19,7 @@
 {# icone dans l'onglet #}
     <link rel="icon" href="{{ asset('img/search.svg') }}">
 
-    <title>{% block title %}Objets trouvés{% endblock %}</title>
+    <title>{% block title %}Recherchez {% endblock %}</title>
 </head>
 
 <body>
@@ -28,9 +28,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-4">
-                <a href="{{ path('main_home') }}">
+                <a href="{{ path('main_home') }}" class="logoSociete">
                     <h1>
-                        <img src="{{ asset('img/logo_thouma.png') }}" alt="Logo de l'entreprise Thouma">Objets trouvés
+                        <img src="{{ asset('img/logo_thouma.png') }}" alt="Logo de l'entreprise Thouma">Wanted <img src="{{ asset('img/missing.png') }}">
                     </h1>
                 </a>
                 </div>
@@ -41,6 +41,15 @@
         </div>
     </header>
 
+{# Petite div pour afficher les messages "addFlash" #}
+    {% for label, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="flash flash-{{ label }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+{# FIN DE LA DIV addFlash #}
 
     <main>
         <br>

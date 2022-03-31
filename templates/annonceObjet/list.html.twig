@@ -9,11 +9,12 @@
     <section class="objet-liste">
         {% for objet in objets %}
             <article>
-                <a href="{{ path('annonceObjet_details', {'id' : objet.id})}}" title="Détail de l'annonce">
-                    {{ objet.name }}
+                <a href="{{ path('annonceObjet_details', {'id' : objet.id}) }}" title="Détail de l'annonce">
+                    Titre : {{ objet.name }}
                     <br>
-                    <img src="{{  asset('img/objet/' ~ objet.photo) }}" alt="{{ objet.name }}">
+                    Image : <img src="{{ asset('img/objet/' ~ objet.photo) }}" alt="{{ objet.name }}" class="objet-liste">
                 </a>
+                <br>
             </article>
         {% endfor %}
     </section>

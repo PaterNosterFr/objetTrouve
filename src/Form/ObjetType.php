@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\Objets;
 use Symfony\Component\Form\AbstractType;
 
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 
 use Symfony\Component\Form\Extension\Core\Type\DateType;
@@ -14,17 +15,20 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
+use Symfony\Component\Validator\Constraints\Image;
+
+
 class ObjetType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
             ->add('name', TextType::class, [
-				'label' => 'Quel objet avez-vous trouvé ?'
+				'label' => 'Quel objet avez-vous trouvé ?',
 			])
 
             ->add('lieu', TextareaType::class, [
-				'label' => 'Où avez vous trouvé cet objet ?'
+				'label' => 'Où avez vous trouvé cet objet ?',
 			])
 
             ->add('date', DateType::class, [
@@ -35,6 +39,14 @@ class ObjetType extends AbstractType
 
             ->add('photo', FileType::class, [
 				'mapped' => 'false',
+			])
+
+			->add ('status', ChoiceType::class,[
+				'choices' => [
+					'Trouvé' => 'Trouvé',
+					'Perdu' => 'Perdu'
+				],
+				'multiple' => FALSE
 			])
 
         ;

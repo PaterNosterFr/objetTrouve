@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{objet.name}} | {{ parent() }}
+{% endblock %}
+
+{% block body %}
+    <div>
+    {{ form_start(objetForm) }}
+
+    <h2>Titre : {{ objet.name}}</h2>
+    <br>
+    <div>----------</div>
+    <br>
+    <div>Date : {{ objet.date|date('d-m-Y')}} | </div>
+    <div>Adresse : {{ objet.lieu }} | </div>
+
+
+        {{ form_end(objetForm) }}
+    </div>
+
+{% endblock %}

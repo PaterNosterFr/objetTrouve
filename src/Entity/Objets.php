@@ -4,9 +4,11 @@ namespace App\Entity;
 
 use App\Repository\ObjetsRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=ObjetsRepository::class)
+ * @method format( string $string )
  */
 class Objets
 {
@@ -18,37 +20,42 @@ class Objets
     private $id;
 
     /**
+	 * @Assert\NotBlank(message="Merci de donner un nom à l'objet trouvé (ex: clé, carte d'identité ...).")
+	 * @Assert\Length(max=255)
      * @ORM\Column(type="string", length=255)
      */
     private $name;
 
     /**
+	 * @Assert\NotBlank(message="Merci d'indiquer l'adresse ou vous avez trouvé l'objet (même aproximativement).")
+	 * @Assert\Length(max=255)
      * @ORM\Column(type="string", length=255)
      */
     private $lieu;
 
-    /**
-     * @ORM\Column(type="datetime")
+	/**
+	 * @ORM\Column(type="date")
      */
     private $date;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="date")
      */
     private $dateCreation;
 
     /**
-     * @ORM\Column(type="datetime", nullable=true)
+     * @ORM\Column(type="date", nullable=true)
      */
     private $dateModified;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+	 * @Assert\File(mimeTypes={ "image/png", "image/jpeg", "image/jpg" })
      */
     private $photo;
 
     /**
-     * @ORM\Column(type="string", length=50)
+	 * @ORM\Column(type="string", length=50)
      */
     private $status;
 
@@ -88,7 +95,8 @@ class Objets
 
     public function setDate(\DateTimeInterface $date): self
     {
-        $this->date = $date;
+		$date -> format ('d-m-Y');
+		$this->date = $date;
 
         return $this;
     }
@@ -100,7 +108,9 @@ class Objets
 
     public function setDateCreation(\DateTimeInterface $dateCreation): self
     {
-        $this->dateCreation = $dateCreation;
+		$dateCreation = new \DateTime('now');
+		$dateCreation -> format ('d-m-Y');
+		$this->dateCreation = $dateCreation;
 
         return $this;
     }
@@ -112,6 +122,7 @@ class Objets
 
     public function setDateModified(?\DateTimeInterface $dateModified): self
     {
+		$dateModified->format ('d-m-Y');
         $this->dateModified = $dateModified;
 
         return $this;

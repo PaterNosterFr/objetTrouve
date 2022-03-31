@@ -12,19 +12,22 @@ body {
     padding: 5px;
 }
 
-a {
+.logoSociete {
     color: white;
     text-decoration: none;
 }
-a:hover{
+.logoSociete:hover{
     color: black;
     background-color: white;
 }
-a:focus {
+.logoSociete:focus {
     color: crimson;
     background-color: white;
 }
 
+a {
+    text-decoration: none;
+}
 
 img {
     max-width: 100%;
@@ -53,10 +56,28 @@ select{
     max-width: 50%;
     width: 150px;
 }
+/* ------- FIN CSS ------------ */
 
-/* FIN CSS FORMULAIRE*/
+/* CSS pour la partie messages Flash*/
+.flash{
+    padding: 20px;
+    font-weight: bold;
+    font-size: 1.4rem;
+    margin: 1rem 0;
+    border-radius: 5px;
+}
+
+.flash-success{
+    background-color: forestgreen;
+}
+/* ------- FIN CSS ------------ */
 
 
+/* CSS du petit logo de traduction.  Fichier localisé dans nav.html.twig */
+.flagTranslate{
+    max-block-size: 55%;}
+
+/* ------- FIN CSS ------------ */
 
 main {
     flex: 1;
@@ -86,10 +107,18 @@ nav li {
 
 /* CSS lié à l'affiche des réponses des objets */
 .objet-liste {
-    display: flex;
-    grid-gap: 5px;
+    grid-gap: 15px;
     grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    max-height: 200px;
 }
+
+.miniature {
+    max-height: 200px;
+}
+.miniature:hover{
+    max-height: 700px;
+}
+/* ------- FIN CSS ------------ */
 
 
 
