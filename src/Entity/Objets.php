@@ -59,6 +59,11 @@ class Objets
      */
     private $status;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $commentaire;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -108,7 +113,6 @@ class Objets
 
     public function setDateCreation(\DateTimeInterface $dateCreation): self
     {
-		$dateCreation = new \DateTime('now');
 		$dateCreation -> format ('d-m-Y');
 		$this->dateCreation = $dateCreation;
 
@@ -148,6 +152,18 @@ class Objets
     public function setStatus(string $status): self
     {
         $this->status = $status;
+
+        return $this;
+    }
+
+    public function getCommentaire(): ?string
+    {
+        return $this->commentaire;
+    }
+
+    public function setCommentaire(?string $commentaire): self
+    {
+        $this->commentaire = $commentaire;
 
         return $this;
     }

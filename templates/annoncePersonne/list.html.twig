@@ -1,13 +1,22 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-    Liste des annonces | {{ parent() }}
+    {{ parent() }} | Liste des annonces
 {% endblock %}
 
 {% block body %}
-    <section>
-        todo : afficher la liste des annonces des disparitions inquiétantes
-        +
-        rappel site du Ministère de la Justice et mineurs disparus
+
+    <section class="objet-liste">
+        {% for personne in personnes %}
+            <article>
+                <a href="{{ path('annoncePersonne_details', {'id' : personne.id}) }}" title="Détail de l'annonce">
+                    Titre : {{ personne.name }}
+                    <br>
+                    Image : <img src="{{ asset('img/personne/' ~ personne.photo) }}" alt="{{ personne.name }}" class="objet-liste">
+                </a>
+                <br>
+            </article>
+        {% endfor %}
     </section>
+
 {% endblock %}

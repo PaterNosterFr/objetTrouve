@@ -1,12 +1,18 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-    Personne disparue ? | {{ parent() }}
+    {{ parent() }} | Objets
 {% endblock %}
 
 {% block body %}
-    <section>
-        todo :
-        créer le formulaire de creation d'une nouvelle annonce
-    </section>
+    <div>
+        {{ form_start(personneForm) }}
+
+        {{ form_widget(personneForm) }}
+
+        <button>Créer</button>
+
+        {{ form_end(personneForm) }}
+    </div>
+
 {% endblock %}

@@ -1,13 +1,35 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-    Détails de l'annonce | {{ parent() }}
+    {{ parent() }} | Animaux
 {% endblock %}
 
 {% block body %}
-    <section>
-        todo :
-        Afficher le titre de l'annonce + toutes les infos liées
-        Penser à faire un rappel "voir le véto le plus proche"
-    </section>
+    <h2>Titre : {{ animal.name}}</h2>
+    <br>
+    <div>----------</div>
+    <div>
+        <button type="button" class="btn btn-outline-secondary">
+            <a href="{{ path('annonceAnimal_edition', {'id' : animal.id}) }}">
+                Modifier ?
+            </a>
+        </button>
+        /
+        <button type="button" class="btn btn-labeled btn-danger">
+                <a href="javascript:void(0)"
+                   onclick="if( confirm ('Vous êtes sur de vouloir supprimer cette annonce ?') )
+                   {
+                       window.location='{{ path('annonceAnimal_suppression', {'id': animal.id }) }}';
+                   }">
+                    Suppression
+                </a>
+        </button>
+    </div>
+    <div>----------</div>
+    <br>
+    <div>Date : {{ animal.date | date('d-m-Y')}}</div>
+    <div>Adresse : {{ animal.lieu }}</div>
+    <div>Photo : <img src="{{ asset('img/animal/' ~ animal.photo) }}" alt="{{ animal.name }}" class="miniature"></div>
+    <div>Commentaire : {{ animal.commentaire }}</div>
+
 {% endblock %}

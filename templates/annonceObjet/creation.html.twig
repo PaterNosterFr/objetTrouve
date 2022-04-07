@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-    Objet perdu ? | {{ parent() }}
+    {{ parent() }} | Objets
 {% endblock %}
 
 {% block body %}
@@ -10,7 +10,7 @@
 
         {{ form_widget(objetForm) }}
 
-        <button>Créez !</button>
+        <button>Créer</button>
 
         {{ form_end(objetForm) }}
     </div>

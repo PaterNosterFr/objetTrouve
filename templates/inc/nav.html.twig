@@ -1,5 +1,6 @@
 <nav>
     <ul class="nav nav-pills nav-justified self-">
+
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"> Consulter les annonces</a>
             <ul class="dropdown-menu">
@@ -13,6 +14,9 @@
                        title="Disparitions de mineur en cours" target="_blank">Disparitions de mineur en cours</a></li>
             </ul>
         </li>
+
+        {%  if app.user %}
+
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Créer une annonce</a>
             <ul class="dropdown-menu">
@@ -23,12 +27,32 @@
                 <li><a class="dropdown-item" href="{{ path('annoncePersonne_creation') }}">Disparition inquiétante d'un proche ?</a></li>
             </ul>
         </li>
+
         <li class="nav-item">
-            <a class="nav-link" href="{{ path('user_creation') }}" title="Connexion / inscription">Connexion / Inscription</a>
+            <a class="nav-link" href="{{ path('app_logout') }}" title="Deconnexion">Déconnexion {{ app.user.userIdentifier }}</a>
+        </li>
+
+        {% if is_granted("ROLE_ADMIN") %}
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('admin_dashboard') }}" title="Admin">Admin</a>
+            </li>
+        {% endif %}
+
+        {% else %}
+
+        <li class="nav-item">
+            <a class="nav-link" href="{{ path('app_login') }}" title="Connexion">Connexion</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{ path('main_test') }}" title="Page de test">Test</a>
+            <a class="nav-link" href="{{ path('app_register') }}" title="Inscription">Inscription</a>
         </li>
-        <li><img src="{{ asset('img/trad.png') }}" alt="Traduire le site" class="flagTranslate"></li>
+
+        {% endif %}
+
+
+
+        <li>
+            <img src="{{ asset('img/trad.png') }}" alt="Traduire le site" class="flagTranslate">
+        </li>
     </ul>
 </nav>

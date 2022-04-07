@@ -1,14 +1,21 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-    Animal perdu ou trouvé ? | {{ parent() }}
+    {{ parent() }} | Animaux
 {% endblock %}
 
 {% block body %}
-    <section>
-        todo :
-        afficher la liste des annonces des animaux perdus
-        NB : penser à mettre un rappel "appeler la PM la plus proche pour la fourrière"
+    <section class="objet-liste">
+        {% for animal in animaux %}
+            <article>
+                <a href="{{ path('annonceAnimal_details', {'id' : animal.id}) }}" title="Détail de l'annonce">
+                    Titre : {{ animal.name }}
+                    <br>
+                    Image : <img src="{{ asset('img/animal/' ~ animal.photo) }}" alt="{{ animal.name }}" class="objet-liste">
+                </a>
+                <br>
+            </article>
+        {% endfor %}
     </section>
 
 {% endblock %}

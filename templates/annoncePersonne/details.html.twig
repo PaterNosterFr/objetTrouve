@@ -1,13 +1,38 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-    Détails de l'annonce | {{ parent() }}
+    {{ parent() }} | {{personne.name}}
 {% endblock %}
 
 {% block body %}
-    <section>
-        todo :
-        Afficher le titre de l'annonce + toutes les infos liées
-        NB : s'inspirer de la page du site des mineurs disparus
-    </section>
+    <h2>Titre : {{ personne.name}}</h2>
+    <br>
+    <div>----------</div>
+    <div>
+        <button type="button" class="btn btn-outline-secondary">
+            <a href="{{ path('annoncePersonne_edition', {'id' : personne.id}) }}">
+                Modifier ?
+            </a>
+        </button>
+        /
+        <button type="button" class="btn btn-outline-danger">
+                <a href="javascript:void(0)"
+                   onclick="if
+                           (confirm ('Vous êtes sur de vouloir supprimer cette annonce ?') )
+                   {
+                       window.location='{{ path('annoncePersonne_suppression', {'id': personne.id }) }}';
+                   }">
+                    Supprimer ?
+                </a>
+        </button>
+
+    </div>
+    <div>----------</div>
+    <br>
+    <div>Date : {{ personne.date | date('d-m-Y')}}</div>
+    <div>Adresse : {{ personne.lieu }}</div>
+    <div>Photo : <img src="{{ asset('img/personne/' ~ personne.photo) }}" alt="{{ personne.name }}" class="miniature"></div>
+    <div>Plus d'informations : {{ personne.commentaire }}</div>
+
+
 {% endblock %}

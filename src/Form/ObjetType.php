@@ -5,7 +5,6 @@ namespace App\Form;
 use App\Entity\Objets;
 use Symfony\Component\Form\AbstractType;
 
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 
 use Symfony\Component\Form\Extension\Core\Type\DateType;
@@ -14,9 +13,6 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 use Symfony\Component\OptionsResolver\OptionsResolver;
-
-use Symfony\Component\Validator\Constraints\Image;
-
 
 class ObjetType extends AbstractType
 {
@@ -27,7 +23,7 @@ class ObjetType extends AbstractType
 				'label' => 'Quel objet avez-vous trouvé ?',
 			])
 
-            ->add('lieu', TextareaType::class, [
+            ->add('lieu', TextType::class, [
 				'label' => 'Où avez vous trouvé cet objet ?',
 			])
 
@@ -38,18 +34,17 @@ class ObjetType extends AbstractType
 			])
 
             ->add('photo', FileType::class, [
+				'label' => 'Image (fichier image)',
 				'mapped' => 'false',
+				'data_class' => null
+			])
+			->add('commentaire', TextareaType::class, [
+				'label' => 'Plus d\'informations à partager ?',
+				'required' => FALSE,
 			])
 
-			->add ('status', ChoiceType::class,[
-				'choices' => [
-					'Trouvé' => 'Trouvé',
-					'Perdu' => 'Perdu'
-				],
-				'multiple' => FALSE
-			])
+		; // ";" de fin du builder. A ne pas effacer !!
 
-        ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void

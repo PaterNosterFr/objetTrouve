@@ -1,12 +1,17 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-    Animal perdu ou trouvé ? | {{ parent() }}
+    {{ parent() }} | Animaux
 {% endblock %}
 
 {% block body %}
     <section>
-        todo :
-        créer le formulaire de creation d'une nouvelle annonce d'un animal perdu ou trouvé
+            {{ form_start(animalForm) }}
+
+            {{ form_widget(animalForm) }}
+
+            <button>Créez !</button>
+
+            {{ form_end(animalForm) }}
     </section>
 {% endblock %}
